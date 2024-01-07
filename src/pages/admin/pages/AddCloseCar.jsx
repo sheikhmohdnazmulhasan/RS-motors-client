@@ -1,5 +1,6 @@
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+// import Swal from "sweetalert2";
 
 const AddCloseCar = () => {
 
@@ -33,26 +34,37 @@ const AddCloseCar = () => {
         if (response.data.success == true) {
             console.log(response.data.data.display_url);
 
-            toast.success('done...',
-                {
-                    id: toastID,
-                    style: {
-                        borderRadius: '5px',
-                        background: '#333',
-                        color: '#fff',
-                    },
-                })
+            const data = { title, description, year, mileage, price, features, condition, photo: response.data.data.display_url };
+
+
+            axios.post('http://localhost:5000/deal-close/v1', data).then(data => {
+
+                if (data.data.insertedId) {
+
+                    toast.success('Car Successfully Added',
+                        {
+                            id: toastID,
+                            style: {
+                                borderRadius: '5px',
+                                background: '#333',
+                                color: '#fff',
+                            },
+                        });
+
+                    form.reset();
+
+                }
+
+            }).catch(err => {
+                console.log(err);
+            })
+
         }
-
-
-        // console.log(title, description, year, mileage, price, features, condition);
-
 
     }
     return (
         <div>
-            <Toaster
-            />
+            <Toaster />
             <form className="max-w-md mx-auto" onSubmit={handleAddCloseCar}>
                 <div className="relative z-0 w-full mb-5 group">
                     <input type="text" name="title" id="floating_email" className="block text-white py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
@@ -69,11 +81,11 @@ const AddCloseCar = () => {
 
                 <div className="grid md:grid-cols-2 md:gap-6">
                     <div className="relative z-0 w-full mb-5 group">
-                        <input type="text" name="mileage" id="floating_first_name" className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                        <input type="number" name="mileage" id="floating_first_name" className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                         <label htmlFor="floating_first_name" className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Mileage</label>
                     </div>
                     <div className="relative z-0 w-full mb-5 group">
-                        <input type="text" name="price" id="floating_first_name" className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                        <input type="number" name="price" id="floating_first_name" className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                         <label htmlFor="floating_first_name" className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Price</label>
                     </div>
                 </div>
