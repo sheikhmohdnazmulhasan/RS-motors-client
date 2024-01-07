@@ -1,5 +1,6 @@
 import Hero from "../components/Hero";
 import help from '../assets/help.png';
+import CloseCar from "../components/CloseCar";
 
 const Home = () => {
     return (
@@ -20,6 +21,9 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <main className="py-20 px-5 md:px-20 bg-[#141A1C]">
+                <CloseCar />
+            </main>
         </div>
     );
 };
