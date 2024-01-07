@@ -32,7 +32,6 @@ const AddCloseCar = () => {
         const response = await axios.post('https://api.imgbb.com/1/upload?key=774dde97e245310358495ba299851640', image);
 
         if (response.data.success == true) {
-            console.log(response.data.data.display_url);
 
             const data = { title, description, year, mileage, price, features, condition, photo: response.data.data.display_url };
 
@@ -62,6 +61,7 @@ const AddCloseCar = () => {
         }
 
     }
+    
     return (
         <div>
             <Toaster />
