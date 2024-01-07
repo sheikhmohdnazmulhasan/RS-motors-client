@@ -9,6 +9,7 @@ import AuthProvider from "./AuthProvider";
 import Dashboard from "./pages/admin/Dashboard";
 import AdminRoute from "./pages/admin/AdminRoute";
 import AddCar from "./pages/admin/pages/AddCar";
+import AddCloseCar from "./pages/admin/pages/AddCloseCar";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
       {
         path: 'admin/dashboard', element: <AdminRoute><Dashboard /></AdminRoute>,
         children: [
-          { path: 'add-car', element: <AddCar /> }
+          { path: 'add-car', element: <AddCar /> },
+          { path: 'add-portfolio', element: <AddCloseCar /> }
         ]
       },
     ]

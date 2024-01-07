@@ -6,7 +6,7 @@ const Dashboard = () => {
             <div className="hidden  w-[16%] bg-[#241c2b] p-5 md:flex flex-col gap-3">
                 <NavLink className='text-white'> <p className="w-full bg-black py-2 px-4 rounded text-center hover:bg-[#141A1C] font-semibold">Add Car </p></NavLink>
 
-                <NavLink className='text-white'> <p className="w-full bg-black py-2 px-4 rounded text-center hover:bg-[#141A1C] font-semibold">Add Portfolio </p></NavLink>
+                <NavLink to={'add-portfolio'} className='text-white'> <p className="w-full bg-black py-2 px-4 rounded text-center hover:bg-[#141A1C] font-semibold">Add Portfolio </p></NavLink>
 
                 <hr />
                 <NavLink className='text-white'> <p className="w-full bg-black py-2 px-4 rounded text-center hover:bg-[#141A1C] font-semibold">All Car </p></NavLink>
@@ -24,7 +24,7 @@ const Dashboard = () => {
 
                     <NavLink className='text-white'> <p className="w-full bg-black py-2 px-4 rounded text-center hover:bg-[#141A1C] font-semibold">Add Car </p></NavLink>
 
-                    <NavLink className='text-white'> <p className="w-full bg-black py-2 px-4 rounded text-center hover:bg-[#141A1C] font-semibold">Add Portfolio </p></NavLink>
+                    <NavLink to={'add-portfolio'} className='text-white'> <p className="w-full bg-black py-2 px-4 rounded text-center hover:bg-[#141A1C] font-semibold">Add Portfolio </p></NavLink>
 
                     <NavLink className='text-white'> <p className="w-full bg-black py-2 px-4 rounded text-center hover:bg-[#141A1C] font-semibold">All Car </p></NavLink>
 
