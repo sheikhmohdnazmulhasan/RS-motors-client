@@ -13,7 +13,7 @@ const Hero = () => {
 
     return (
         <div className="">
-            <div className="w-full h-96 md:h-[540px] lg:h-[640px] flex flex-col xl:flex-row items-center justify-center gap-5 lg:gap-10 relative bg-cover before:absolute before:bg-black/50 before:inset-0 duration-1000 transform ease-linear z-50" style={{ backgroundImage: `url(${sliders[currentSlider].img})`, }}>
+            <div className="w-full h-screen flex flex-col xl:flex-row items-center justify-center gap-5 lg:gap-10 relative bg-cover before:absolute before:bg-black/50 before:inset-0 duration-1000 transform ease-linear z-50" style={{ backgroundImage: `url(${sliders[currentSlider].img})`, }}>
                 {/* text container here */}
                 <div className="min-w-full drop-shadow-lg text-white rounded-lg ease-linear duration-300 flex flex-col justify-center items-center">
                     <h1 className="lg:text-3xl mb-3">{sliders[currentSlider].title}</h1>
