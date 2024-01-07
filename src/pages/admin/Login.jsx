@@ -8,7 +8,6 @@ const Login = () => {
     const [err, setErr] = useState('');
     const [emailErr, setEmailErr] = useState('');
     const [showPass, setShowPass] = useState(false);
-
     const { login, user } = useContext(AuthContext);
 
     console.log(user);
@@ -25,16 +24,16 @@ const Login = () => {
 
     }
 
-    function handleRegister(event) {
+    function handleLogin(event) {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
 
-        login(email, password).then(user => {
-            console.log(user);
+        login(email, password).then(() => {
+            // console.log(user);
 
         }).catch(err => {
-            console.log(err);
+            setErr(err.code)
         })
 
     }
@@ -48,7 +47,7 @@ const Login = () => {
                 </div>}
                 <div className="mt-10">
                     <p className="">Email Address or Username*</p>
-                    <form className="mt-2" onSubmit={handleRegister}>
+                    <form className="mt-2" onSubmit={handleLogin}>
                         <input type="email" disabled={showPasswordFiled ? true : false} required name="email" className={showPasswordFiled ? 'w-full px-3 text-black border py-2 rounded cursor-not-allowed' : 'w-full px-3 text-black border py-2 rounded'} onChange={(event) => setEmail(event.target.value)} />
                         <p className="mt-3 text-sm text-red-400">{emailErr}</p>
                         {showPasswordFiled && <div className="relative">
@@ -66,7 +65,7 @@ const Login = () => {
                         </div>
                         <div className="mt-6 hidden md:flex gap-7 items-center">
                             <button type={showPasswordFiled ? 'submit' : 'button'} className="bg-[#047BC1] text-white px-16 py-2 rounded block md:flex" onClick={handleNext}>{showPasswordFiled ? 'Log In' : 'Next'}</button>
-                            <span className="text-[#047BC1] underline font-bold">Forgot Your Password?</span>
+                            {/* <span className="text-[#047BC1] underline font-bold">Forgot Your Password?</span> */}
                         </div>
                     </form>
                 </div>
