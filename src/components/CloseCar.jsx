@@ -10,11 +10,11 @@ const CloseCar = () => {
             const response = await axios.get(`http://localhost:5000/deal-close/v1`);
             return response.data
         }
-    })
+    });
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {data.map(car => <Link to={`/portfolio/${car._id}`} key={car._id}><div className="">
+            {data.slice(0, 7).map(car => <Link to={`/portfolio/${car._id}`} key={car._id}><div className="">
                 <figure className="">
                     <img src={car?.photo} alt="" className="w-96 h-60 rounded-md" />
                 </figure>

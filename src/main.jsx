@@ -11,6 +11,7 @@ import AdminRoute from "./pages/admin/AdminRoute";
 import AddCar from "./pages/admin/pages/AddCar";
 import AddCloseCar from "./pages/admin/pages/AddCloseCar";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import PortfolioDetails from "./pages/admin/pages/PortfolioDetails";
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: '/login', element: <Login /> },
+      { path: '/portfolio/:id', element: <PortfolioDetails />, loader: ({ params }) => fetch(`http://localhost:5000/deal-close/v1/${params.id}`) },
       {
         path: 'admin/dashboard', element: <AdminRoute><Dashboard /></AdminRoute>,
         children: [
