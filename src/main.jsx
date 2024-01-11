@@ -25,7 +25,8 @@ const router = createBrowserRouter([
         path: 'admin/dashboard', element: <AdminRoute><Dashboard /></AdminRoute>,
         children: [
           { path: 'add-car', element: <AddCar /> },
-          { path: 'add-portfolio', element: <AddCloseCar /> }
+          { path: 'add-portfolio', element: <AddCloseCar /> },
+          { path: 'add-car', element: <AddCar /> }
         ]
       },
     ]

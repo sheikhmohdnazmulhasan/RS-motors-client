@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { AuthContext } from "../../AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [email, setEmail] = useState('')
@@ -9,6 +10,7 @@ const Login = () => {
     const [emailErr, setEmailErr] = useState('');
     const [showPass, setShowPass] = useState(false);
     const { login, user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     console.log(user);
 
@@ -31,6 +33,7 @@ const Login = () => {
 
         login(email, password).then(() => {
             // console.log(user);
+            navigate('/admin/dashboard')
 
         }).catch(err => {
             setErr(err.code)
