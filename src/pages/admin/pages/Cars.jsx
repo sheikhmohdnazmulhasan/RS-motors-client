@@ -1,17 +1,45 @@
 import { useQuery } from '@tanstack/react-query';
-import img from '../../../../../../../../Nazmul/canon/x/zzz/New folder/IMG_6080.png';
 import { MdEditDocument, MdDelete } from "react-icons/md";
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Cars = () => {
 
-    const { data = [] } = useQuery({
+    const { data = [], refetch } = useQuery({
         queryKey: ['cars'],
         queryFn: async () => {
             const response = await axios.get('http://localhost:5000/cars/v1');
             return response.data
         }
     });
+
+    function handleDelete(_id) {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/car-delete/v1/${_id}`).then(data => {
+
+                    if (data.data.deletedCount > 0) {
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your item has been deleted.",
+                            icon: "success"
+                        });
+                        refetch();
+                    }
+
+                }).catch(err => console.log(err));
+
+            }
+        });
+    }
 
     return (
         <div className="mx-5 md:mx-10 text-white">
@@ -23,7 +51,7 @@ const Cars = () => {
                 <p className='uppercase'>$ {car.price}</p>
                 <div className="flex gap-4 text-2xl">
                     <MdEditDocument className='text-sky-600 hover:sky-red-700 cursor-pointer hover:scale-125 transition-all' />
-                    <MdDelete className='text-red-600 hover:text-red-700 cursor-pointer hover:scale-125 transition-all' />
+                    <MdDelete className='text-red-600 hover:text-red-700 cursor-pointer hover:scale-125 transition-all' onClick={() => handleDelete(car._id)} />
                 </div>
             </div>)}
         </div>
