@@ -5,6 +5,7 @@ import homeimg1 from '../assets/h1-img-3.jpg';
 import homeimg2 from '../assets/h1-img-4.jpg';
 import rend from '../assets/header6.jpg';
 import { Link } from "react-router-dom";
+import Testimonial from "../components/Testimonial";
 
 const Home = () => {
     return (
@@ -61,7 +62,7 @@ const Home = () => {
                 </div>
 
                 {/* We Care Of Your Safety*/}
-                <div className="md:flex justify-between w-full gap-4 mt-20">
+                <section className="md:flex justify-between w-full gap-4 mt-20">
                     <div className="flex-1">
                         <h1 className="text-4xl font-semibold leading-snug text-white">We Care Of Your Safety <br />And Convenience</h1>
                         <p className="text-[#BFA37C] font-mono pb-5">PREMIUM DRIVERS</p>
@@ -74,14 +75,20 @@ const Home = () => {
                         <img className="md:w-[50%] rounded-md" src={homeimg1} alt="" />
                         <img className="md:w-[50%] rounded-md" src={homeimg2} alt="" />
                     </div>
-                </div>
+                </section>
             </div>
-            <div className="bg-[url('https://i.ibb.co/0hGtR3K/header6.jpg')] bg-cover h-96 ">
+            <section className="bg-[url('https://i.ibb.co/0hGtR3K/header6.jpg')] bg-cover h-96 ">
                 <div className="bg-black w-full h-full bg-opacity-70 flex justify-center md:justify-end items-center py-20 px-5 md:px-20">
                     <div className="">
                         <h1 className="text-4xl font-semibold leading-snug text-white">Do You Need To Rent A Car? <br />See Our Offers</h1>
                         <Link><button className="text-xl mt-4 w-36 h-12 before:block before:absolute hover:before:bg-[#BFA37C] before:w-0 before:h-0 hover:before:h-20 hover:before:w-40 before:-bottom-2 before:-right-2 before:duration-500 before:rounded-xl before:-z-10 relative inline-block transform hover:text-white text-[#BFA37C] bg-transparent border overflow-hidden border-[#BFA37C] duration-500">See Protfolio</button></Link>
                     </div>
+                </div>
+            </section>
+            <div className="py-20 px-5 md:px-20 bg-black ">
+                <h1 className="text-4xl font-semibold leading-snug text-white">We trive to meet the needs <br /> of our clients and we value their <br /> opinions about our work</h1>
+                <div className="">
+                    <Testimonial />
                 </div>
             </div>
         </div>
