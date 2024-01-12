@@ -140,7 +140,7 @@ const Home = () => {
                     <h1 className="text-4xl font-semibold leading-snug text-white">Get 15% Off Your Rental!<br />Choose Your Model</h1>
                 </div>
             </section>
-            <section className="bg-[#141A1C] px-5 md:px-20 py-20 flex justify-between">
+            <section className="bg-[#141A1C] px-5 md:px-20 py-20 md:flex justify-between space-y-5">
 
                 {/* Location */}
                 <div className="flex items-center gap-4 text-white">
@@ -162,7 +162,7 @@ const Home = () => {
 
                 {/* Opening time */}
                 <div className="flex items-center gap-4 text-white">
-                    <img className="w-[25px]" src={clock} alt="" />
+                    <img className="w-[36px]" src={clock} alt="" />
                     <div className="">
                         <p>Mon-Sat 09:00-23:00;</p>
                         <p>Sunday is closed.</p>

@@ -3,7 +3,7 @@ import { RotatingTriangles } from 'react-loader-spinner';
 
 const Loader = () => {
     return (
-        <div className='flex justify-center w-full mt-36'>
+        <div className='flex justify-center w-full mt-36 h-screen'>
             <RotatingTriangles
                 visible={true}
                 height="150"

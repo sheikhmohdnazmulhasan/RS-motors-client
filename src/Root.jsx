@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 const Root = () => {
 
@@ -19,12 +19,12 @@ const Root = () => {
                     <div className="w-full navbar bg-[#141A1C] z-[50]">
                         <div className="flex-none lg:hidden">
                             <label htmlFor="my-drawer-3" aria-label="open sidebar" className="btn btn-square btn-ghost">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current text-white"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                             </label>
                         </div>
                         <div className="flex-1 px-2 mx-2">Navbar Title</div>
                         <div className="flex-none hidden lg:block">
-                            <ul className="menu menu-horizontal">
+                            <ul className="menu menu-horizontal text-white">
                                 {/* Navbar menu content here */}
                                 {navLink}
                             </ul>
@@ -38,7 +38,7 @@ const Root = () => {
                 </div>
                 <div className="drawer-side z-50 mt-[63px]">
                     <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 min-h-full bg-[#111414] !z-[5000]">
+                    <ul className="menu p-4 w-80 min-h-full bg-[#111414] !z-[5000] text-white">
                         {/* Sidebar content here */}
                         {navLink}
                     </ul>
@@ -48,10 +48,10 @@ const Root = () => {
             <footer className=" shadow bg-black">
                 <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
                     <div className="sm:flex sm:items-center sm:justify-between">
-                        <a href="https://flowbite.com/" className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                        <Link to={'/'} className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                             <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
                             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-                        </a>
+                        </Link>
                         <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                             <li>
                                 <a href="#" className="hover:underline me-4 md:me-6">About</a>
