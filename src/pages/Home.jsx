@@ -6,9 +6,10 @@ import homeimg2 from '../assets/h1-img-4.jpg';
 import carPNG from '../assets/h1-img-9.png';
 import { Link } from "react-router-dom";
 import Testimonial from "../components/Testimonial";
+import location from '../assets/content-bottom-icon-001.png';
+import clock from '../assets/content-bottom-icon-003.png';
 
 const Home = () => {
-    const data = 4;
 
     return (
         <div>
@@ -108,7 +109,6 @@ const Home = () => {
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quos nam eaque quisquam ipsum quam inventore officia temporibus quis beatae.</p>
                         </div>
                         <div className=" flex items-center justify-end">
-
                             <Link>
                                 <button className="text-xl mt-4 w-36 h-12 before:block before:absolute hover:before:bg-[#BFA37C] before:w-0 before:h-0 hover:before:h-20 hover:before:w-40 before:-bottom-2 before:-right-2 before:duration-500 before:rounded-xl before:-z-10 relative inline-block transform hover:text-white text-[#BFA37C] bg-transparent border overflow-hidden border-[#BFA37C] duration-500">See Protfolio</button>
                             </Link>
@@ -140,8 +140,34 @@ const Home = () => {
                     <h1 className="text-4xl font-semibold leading-snug text-white">Get 15% Off Your Rental!<br />Choose Your Model</h1>
                 </div>
             </section>
-            <section className="bg-[#141A1C]">
-                
+            <section className="bg-[#141A1C] px-5 md:px-20 py-20 flex justify-between">
+
+                {/* Location */}
+                <div className="flex items-center gap-4 text-white">
+                    <img className="w-[25px]" src={location} alt="" />
+                    <div className="">
+                        <p>Dhaka, Bangladesh</p>
+                        <p>Rangpur, Bangladesh</p>
+                    </div>
+                </div>
+
+                {/* Contact */}
+                <div className="flex items-center gap-4 text-white">
+                    <img className="w-[35px]" src={help} alt="" />
+                    <div className="">
+                        <p>+880 1211111111</p>
+                        <p>contact@rs.com</p>
+                    </div>
+                </div>
+
+                {/* Opening time */}
+                <div className="flex items-center gap-4 text-white">
+                    <img className="w-[25px]" src={clock} alt="" />
+                    <div className="">
+                        <p>Mon-Sat 09:00-23:00;</p>
+                        <p>Sunday is closed.</p>
+                    </div>
+                </div>
             </section>
         </div>
     );
