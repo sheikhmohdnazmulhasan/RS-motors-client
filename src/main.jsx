@@ -13,6 +13,7 @@ import AddCloseCar from "./pages/admin/pages/AddCloseCar";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import PortfolioDetails from "./pages/admin/pages/PortfolioDetails";
 import Cars from "./pages/admin/pages/Cars";
+import Portfolios from "./pages/admin/pages/Portfolios";
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -28,7 +29,8 @@ const router = createBrowserRouter([
           { path: 'add-car', element: <AddCar /> },
           { path: 'add-portfolio', element: <AddCloseCar /> },
           { path: 'add-car', element: <AddCar /> },
-          { index: true, element: <Cars /> }
+          { index: true, element: <Cars /> },
+          { path: 'portfolios', element: <Portfolios /> }
         ]
       },
     ]
