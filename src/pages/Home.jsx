@@ -80,7 +80,7 @@ const Home = () => {
                 </section>
             </div>
             <section className="bg-[url('https://i.ibb.co/0hGtR3K/header6.jpg')] bg-fixed bg-cover h-96 ">
-                <div className="bg-black w-full h-full bg-opacity-70 flex justify-center md:justify-end items-center py-20 px-5 md:px-20">
+                <div className="bg-black w-full h-full bg-opacity-80 flex justify-center md:justify-end items-center py-20 px-5 md:px-20">
                     <div className="">
                         <h1 className="text-4xl font-semibold leading-snug text-white">Do You Need To Rent A Car? <br />See Our Offers</h1>
                         <Link><button className="text-xl mt-4 w-36 h-12 before:block before:absolute hover:before:bg-[#BFA37C] before:w-0 before:h-0 hover:before:h-20 hover:before:w-40 before:-bottom-2 before:-right-2 before:duration-500 before:rounded-xl before:-z-10 relative inline-block transform hover:text-white text-[#BFA37C] bg-transparent border overflow-hidden border-[#BFA37C] duration-500">See Protfolio</button></Link>
@@ -134,6 +134,14 @@ const Home = () => {
                 <div className="">
                     <Testimonial />
                 </div>
+            </section>
+            <section className="bg-[url('https://i.ibb.co/qNZy4SF/a.jpg')] bg-cover w-full h-96 bg-fixed">
+                <div className="bg-black w-full h-full bg-opacity-70 px-5 md:px-20 flex items-center">
+                    <h1 className="text-4xl font-semibold leading-snug text-white">Get 15% Off Your Rental!<br />Choose Your Model</h1>
+                </div>
+            </section>
+            <section className="bg-[#141A1C]">
+                
             </section>
         </div>
     );
