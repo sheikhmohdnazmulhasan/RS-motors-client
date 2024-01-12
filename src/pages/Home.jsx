@@ -3,11 +3,13 @@ import help from '../assets/help.png';
 import CloseCar from "../components/CloseCar";
 import homeimg1 from '../assets/h1-img-3.jpg';
 import homeimg2 from '../assets/h1-img-4.jpg';
-import rend from '../assets/header6.jpg';
+import carPNG from '../assets/h1-img-9.png';
 import { Link } from "react-router-dom";
 import Testimonial from "../components/Testimonial";
 
 const Home = () => {
+    const data = 4;
+
     return (
         <div>
             <Hero />
@@ -77,7 +79,7 @@ const Home = () => {
                     </div>
                 </section>
             </div>
-            <section className="bg-[url('https://i.ibb.co/0hGtR3K/header6.jpg')] bg-cover h-96 ">
+            <section className="bg-[url('https://i.ibb.co/0hGtR3K/header6.jpg')] bg-fixed bg-cover h-96 ">
                 <div className="bg-black w-full h-full bg-opacity-70 flex justify-center md:justify-end items-center py-20 px-5 md:px-20">
                     <div className="">
                         <h1 className="text-4xl font-semibold leading-snug text-white">Do You Need To Rent A Car? <br />See Our Offers</h1>
@@ -85,12 +87,54 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <div className="py-20 px-5 md:px-20 bg-black ">
+
+            {/* A High Variety Of Options */}
+            <section className="py-20 px-5 md:px-20 bg-[#141A1C] text-white">
+                <h1 className="text-4xl font-semibold leading-snug">A High Variety Of Options</h1>
+                <p className="text-[#BFA37C] font-mono pb-5">BEST POSSIBILITIES</p>
+                <hr className="opacity-25" />
+
+                {/* Desktop */}
+                <div className="ml-40 hidden md:block">
+                    <div className="mt-20 h-40 md:grid grid-cols-3 gap-4 pb-3  border-gray-700 border-b">
+                        <div className="flex items-center">
+                            <img src={carPNG} alt="" />
+                            <div className="-ml-20">
+                                <h3 className="text-white  uppercase text-xl font-semibold">falcon</h3>
+                                <p className="text-[#BFA37C] text-xl font-bold">$ <span className="text-4xl">6000</span></p>
+                            </div>
+                        </div>
+                        <div className="flex items-center">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quos nam eaque quisquam ipsum quam inventore officia temporibus quis beatae.</p>
+                        </div>
+                        <div className=" flex items-center justify-end">
+
+                            <Link>
+                                <button className="text-xl mt-4 w-36 h-12 before:block before:absolute hover:before:bg-[#BFA37C] before:w-0 before:h-0 hover:before:h-20 hover:before:w-40 before:-bottom-2 before:-right-2 before:duration-500 before:rounded-xl before:-z-10 relative inline-block transform hover:text-white text-[#BFA37C] bg-transparent border overflow-hidden border-[#BFA37C] duration-500">See Protfolio</button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Mobile */}
+                <div className="mt-10 block md:hidden">
+                    <div className=" border-gray-700 border-b pb-3 py-5">
+                        <h3 className="text-xl uppercase font-semibold mb-3">Falcon</h3>
+                        <p className="text-[#BFA37C] text-xl font-bold mb-4">$ <span className="text-4xl">6000</span></p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quos nam eaque quisquam ipsum quam inventore officia temporibus quis beatae.</p>
+                        <Link>
+                            <button className="text-xl mt-4 w-36 h-12 before:block before:absolute hover:before:bg-[#BFA37C] before:w-0 before:h-0 hover:before:h-20 hover:before:w-40 before:-bottom-2 before:-right-2 before:duration-500 before:rounded-xl before:-z-10 relative inline-block transform hover:text-white text-[#BFA37C] bg-transparent border overflow-hidden border-[#BFA37C] duration-500">See Details</button>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-20 px-5 md:px-20 bg-black ">
                 <h1 className="text-4xl font-semibold leading-snug text-white">We trive to meet the needs <br /> of our clients and we value their <br /> opinions about our work</h1>
                 <div className="">
                     <Testimonial />
                 </div>
-            </div>
+            </section>
         </div>
     );
 };
