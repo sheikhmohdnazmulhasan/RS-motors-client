@@ -14,6 +14,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import PortfolioDetails from "./pages/admin/pages/PortfolioDetails";
 import Cars from "./pages/admin/pages/Cars";
 import Portfolios from "./pages/admin/pages/Portfolios";
+import Shop from "./pages/Shop";
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: '/login', element: <Login /> },
       { path: '/portfolio/:id', element: <PortfolioDetails />, loader: ({ params }) => fetch(`http://localhost:5000/deal-close/v1/${params.id}`) },
+      { path: '/shop', element: <Shop /> },
       {
         path: 'admin/dashboard', element: <AdminRoute><Dashboard /></AdminRoute>,
         children: [
