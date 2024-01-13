@@ -8,8 +8,18 @@ import { Link } from "react-router-dom";
 import Testimonial from "../components/Testimonial";
 import location from '../assets/content-bottom-icon-001.png';
 import clock from '../assets/content-bottom-icon-003.png';
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const Home = () => {
+
+    const { data = [], } = useQuery({
+        queryKey: ['shop'],
+        queryFn: async () => {
+            const response = await axios.get('http://localhost:5000/cars/v1');
+            return response.data;
+        }
+    });
 
     return (
         <div>
@@ -96,37 +106,37 @@ const Home = () => {
                 <hr className="opacity-25" />
 
                 {/* Desktop */}
-                <div className="ml-40 hidden md:block">
+                {data.slice(0, 4).map(car => <div key={car._id} className="ml-40 hidden md:block">
                     <div className="mt-20 h-40 md:grid grid-cols-3 gap-4 pb-3  border-gray-700 border-b">
                         <div className="flex items-center">
                             <img src={carPNG} alt="" />
                             <div className="-ml-20">
-                                <h3 className="text-white  uppercase text-xl font-semibold">falcon</h3>
-                                <p className="text-[#BFA37C] text-xl font-bold">$ <span className="text-4xl">6000</span></p>
+                                <h3 className="text-white  uppercase text-xl font-semibold">{car.title}</h3>
+                                <p className="text-[#BFA37C] text-xl font-bold">$ <span className="text-4xl">{car.price}</span></p>
                             </div>
                         </div>
                         <div className="flex items-center">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quos nam eaque quisquam ipsum quam inventore officia temporibus quis beatae.</p>
+                            <p>{car.description.slice(0, 100)}</p>
                         </div>
                         <div className=" flex items-center justify-end">
                             <Link>
-                                <button className="text-xl mt-4 w-36 h-12 before:block before:absolute hover:before:bg-[#BFA37C] before:w-0 before:h-0 hover:before:h-20 hover:before:w-40 before:-bottom-2 before:-right-2 before:duration-500 before:rounded-xl before:-z-10 relative inline-block transform hover:text-white text-[#BFA37C] bg-transparent border overflow-hidden border-[#BFA37C] duration-500">See Protfolio</button>
+                                <button className="text-xl mt-4 w-36 h-12 before:block before:absolute hover:before:bg-[#BFA37C] before:w-0 before:h-0 hover:before:h-20 hover:before:w-40 before:-bottom-2 before:-right-2 before:duration-500 before:rounded-xl before:-z-10 relative inline-block transform hover:text-white text-[#BFA37C] bg-transparent border overflow-hidden border-[#BFA37C] duration-500">See Details</button>
                             </Link>
                         </div>
                     </div>
-                </div>
+                </div>)}
 
                 {/* Mobile */}
-                <div className="mt-10 block md:hidden">
+                {data.slice(0, 4).map(car => <div key={car._id} className="mt-10 block md:hidden">
                     <div className=" border-gray-700 border-b pb-3 py-5">
-                        <h3 className="text-xl uppercase font-semibold mb-3">Falcon</h3>
-                        <p className="text-[#BFA37C] text-xl font-bold mb-4">$ <span className="text-4xl">6000</span></p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quos nam eaque quisquam ipsum quam inventore officia temporibus quis beatae.</p>
+                        <h3 className="text-xl uppercase font-semibold mb-3">{car.title}</h3>
+                        <p className="text-[#BFA37C] text-xl font-bold mb-4">$ <span className="text-4xl">{car.price}</span></p>
+                        <p>{car.description.slice(0, 100)}</p>
                         <Link>
                             <button className="text-xl mt-4 w-36 h-12 before:block before:absolute hover:before:bg-[#BFA37C] before:w-0 before:h-0 hover:before:h-20 hover:before:w-40 before:-bottom-2 before:-right-2 before:duration-500 before:rounded-xl before:-z-10 relative inline-block transform hover:text-white text-[#BFA37C] bg-transparent border overflow-hidden border-[#BFA37C] duration-500">See Details</button>
                         </Link>
                     </div>
-                </div>
+                </div>)}
             </section>
 
             <section className="py-20 px-5 md:px-20 bg-black ">
