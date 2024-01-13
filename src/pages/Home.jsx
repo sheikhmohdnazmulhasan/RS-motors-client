@@ -116,7 +116,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div className="flex items-center">
-                            <p>{car.description.slice(0, 100)}</p>
+                            <p>{car.transmissionType} <br /> {car.regionalSpec} <br /> {car.steeringSide}</p>
                         </div>
                         <div className=" flex items-center justify-end">
                             <Link>
@@ -131,7 +131,7 @@ const Home = () => {
                     <div className=" border-gray-700 border-b pb-3 py-5">
                         <h3 className="text-xl uppercase font-semibold mb-3">{car.title}</h3>
                         <p className="text-[#BFA37C] text-xl font-bold mb-4">$ <span className="text-4xl">{car.price}</span></p>
-                        <p>{car.description.slice(0, 100)}</p>
+                        <p>{car.transmissionType} <br /> {car.regionalSpec} <br /> {car.steeringSide}</p>
                         <Link>
                             <button className="text-xl mt-4 w-36 h-12 before:block before:absolute hover:before:bg-[#BFA37C] before:w-0 before:h-0 hover:before:h-20 hover:before:w-40 before:-bottom-2 before:-right-2 before:duration-500 before:rounded-xl before:-z-10 relative inline-block transform hover:text-white text-[#BFA37C] bg-transparent border overflow-hidden border-[#BFA37C] duration-500">See Details</button>
                         </Link>
