@@ -47,8 +47,6 @@ const AddCloseCar = () => {
 
         const response = await axios.post('https://api.imgbb.com/1/upload?key=774dde97e245310358495ba299851640', image);
 
-        console.log(response);
-
         if (response.data.success == true) {
 
             const data = { features, title, fuelType, bodyType, transmissionType, regionalSpec, steeringSide, year, mileage, price, condition, photo: response.data.data.display_url };
