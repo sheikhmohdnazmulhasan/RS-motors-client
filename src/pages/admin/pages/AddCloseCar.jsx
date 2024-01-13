@@ -1,8 +1,21 @@
 import axios from "axios";
+import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 // import Swal from "sweetalert2";
 
 const AddCloseCar = () => {
+
+    const [features, setFeatures] = useState('Select Features');
+    const [featuresShowMore, setFeaturesShowMore] = useState(false);
+
+    function handleFeatures(text) {
+
+        if (features == 'Select Features') {
+            setFeatures(text);
+        } else {
+            setFeatures(features + ',' + ' ' + text)
+        }
+    }
 
     async function handleAddCloseCar(event) {
         event.preventDefault();
@@ -38,7 +51,7 @@ const AddCloseCar = () => {
 
         if (response.data.success == true) {
 
-            const data = { title, fuelType, bodyType, transmissionType, regionalSpec, steeringSide, year, mileage, price, condition, photo: response.data.data.display_url };
+            const data = { features, title, fuelType, bodyType, transmissionType, regionalSpec, steeringSide, year, mileage, price, condition, photo: response.data.data.display_url };
 
 
             axios.post('http://localhost:5000/deal-close/v1', data).then(data => {
@@ -164,6 +177,41 @@ const AddCloseCar = () => {
 
                         </select>
                     </div>
+                </div>
+
+                <div className="mb-4">
+                    <p className="py-2.5 border-b-2 text-gray-500">{features}</p>
+                    <div className="mt-5 mb-9 flex gap-3 flex-wrap">
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Climate Control')}>Climate Control</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Cooled Seats')}>Cooled Seats</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('4 Wheel Drive')}>4 Wheel Drive</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Wheel Drive')}>4 Wheel Drive</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Air Conditioning')}>4 Air Conditioning</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Alarm/Anti-Theft System')}>Alarm/Anti-Theft System</span>
+
+
+                        {!featuresShowMore && <p className="text-white py-2 px-3 bg-[#BFA37C] rounded cursor-pointer" onClick={() => setFeaturesShowMore(true)}>Show More</p>}
+                    </div>
+
+                    {featuresShowMore && <div className="flex-wrap flex gap-3">
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Alarm/Anti-Theft System')}>Alarm/Anti-Theft System</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('All Wheel Drive')}>All Wheel Drive</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('All Wheel Steering')}>All Wheel Steering</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('AM/FM Radio')}>AM/FM Radio</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Anti-Lock Brakes/ABS')}>Anti-Lock Brakes/ABS</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Aux Audio In')}>Aux Audio In</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Aux Audio In')}>Aux Audio In</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Bluetooth System')}>Bluetooth System</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Bluetooth System')}>Bluetooth System</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Brush Guard')}>Brush Guard</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Cassette Player')}>Cassette Player</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('CD Player')}>CD Player</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Cruise Control')}>Cruise Control</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Dual Exhaust')}>Dual Exhaust</span>
+                        <span className="text-white py-2 px-3 bg-[#241C2B] rounded cursor-pointer" onClick={() => handleFeatures('Fog Lights')}>Fog Lights</span>
+                        <p className="text-white py-2 px-3 bg-[#BFA37C] rounded cursor-pointer" onClick={() => setFeaturesShowMore(false)}>Show Less</p>
+
+                    </div>}
                 </div>
 
                 <div className="max-w-lg mx-auto mb-4">
