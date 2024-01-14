@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { MdEditDocument, MdDelete } from "react-icons/md";
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Cars = () => {
 
@@ -50,7 +51,9 @@ const Cars = () => {
                 <p className='uppercase'>{car.year}</p>
                 <p className='uppercase'>$ {car.price}</p>
                 <div className="flex gap-4 text-2xl">
-                    <MdEditDocument className='text-sky-600 hover:sky-red-700 cursor-pointer hover:scale-125 transition-all' />
+                    <Link to={`edit-car/${car._id}`}>
+                        <MdEditDocument className='text-sky-600 hover:sky-red-700 cursor-pointer hover:scale-125 transition-all' />
+                    </Link>
                     <MdDelete className='text-red-600 hover:text-red-700 cursor-pointer hover:scale-125 transition-all' onClick={() => handleDelete(car._id)} />
                 </div>
             </div>)}

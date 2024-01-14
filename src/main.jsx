@@ -15,6 +15,7 @@ import PortfolioDetails from "./pages/admin/pages/PortfolioDetails";
 import Cars from "./pages/admin/pages/Cars";
 import Portfolios from "./pages/admin/pages/Portfolios";
 import Shop from "./pages/Shop";
+import EditCar from "./pages/admin/pages/EditCar";
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
@@ -32,7 +33,8 @@ const router = createBrowserRouter([
           { path: 'add-portfolio', element: <AddCloseCar /> },
           { path: 'add-car', element: <AddCar /> },
           { index: true, element: <Cars /> },
-          { path: 'portfolios', element: <Portfolios /> }
+          { path: 'portfolios', element: <Portfolios /> },
+          { path: 'edit-car/:id', element: <EditCar />, loader: ({ params }) => fetch(`http://localhost:5000/shop/v1/${params.id}`) }
         ]
       },
     ]
