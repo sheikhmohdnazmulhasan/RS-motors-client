@@ -3,7 +3,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const EditCar = () => {
+const EditP = () => {
     const data = useLoaderData();
     const navigate = useNavigate();
 
@@ -42,7 +42,7 @@ const EditCar = () => {
             const uData = { title, fuelType, year, mileage, price, bodyType, condition, transmissionType, regionalSpec, steeringSide, photo: response.data.data.display_url };
 
 
-            axios.patch(`http://localhost:5000/edit-car/v1/${data._id}`, uData).then(data => {
+            axios.patch(`http://localhost:5000/edit-portfolio/v1/${data._id}`, uData).then(data => {
 
 
                 if (data.data.modifiedCount > 0) {
@@ -93,7 +93,7 @@ const EditCar = () => {
                             <label htmlFor="floating_first_name" className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Mileage</label>
                         </div>
                         <div className="relative z-0 w-full mb-5 group">
-                            <input defaultValue={data?.price} type="number" name="price" id="floating_first_name" className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                            <input defaultValue={data?.price} type="number" name="price" id="floating_first_name" className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  />
                             <label htmlFor="floating_first_name" className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Price</label>
                         </div>
                     </div>
@@ -184,4 +184,4 @@ const EditCar = () => {
     );
 };
 
-export default EditCar;
+export default EditP;
