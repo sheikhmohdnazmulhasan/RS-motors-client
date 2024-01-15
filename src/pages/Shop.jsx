@@ -16,8 +16,9 @@ const Shop = () => {
         }
     });
 
-    async function handleFilterData(filed, data) {
-        const response = await axios.get(`http://localhost:5000/cars/v1?filed=${filed}&data=${data}`);
+    async function handleBodyTypeFilter(query) {
+        const response = await axios.get(`http://localhost:5000/cars/body-type/v1?query=${query}`);
+        console.log(response.data);
 
     }
 
@@ -53,14 +54,14 @@ const Shop = () => {
                             </Accordion.Container>
                             <Accordion.Content className="text-white">
                                 <div className="space-y-3">
-                                    <option className="hover:underline cursor-pointer" onClick={() => handleFilterData('bodyType', 'SUV Coupe Sedan')}>SUV Coupe Sedan</option>
-                                    <option className="hover:underline cursor-pointer" onClick={() => handleFilterData('bodyType', 'Crossover')}>Crossover</option>
-                                    <option className="hover:underline cursor-pointer" onClick={() => handleFilterData('bodyType', 'Hatchback')}>Hatchback</option>
-                                    <option className="hover:underline cursor-pointer" onClick={() => handleFilterData('bodyType', 'Soft Top Convertible')}>Soft Top Convertible</option>
-                                    <option className="hover:underline cursor-pointer" onClick={() => handleFilterData('bodyType', 'Sports Car Van')}>Sports Car Van</option>
-                                    <option className="hover:underline cursor-pointer" onClick={() => handleFilterData('bodyType', 'Wagon')}>Wagon</option>
-                                    <option className="hover:underline cursor-pointer" onClick={() => handleFilterData('bodyType', 'Utility Truck')}>Utility Truck</option>
-                                    <option className="hover:underline cursor-pointer" onClick={() => handleFilterData('bodyType', 'Other')}>Other</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleBodyTypeFilter('SUV Coupe Sedan')}>SUV Coupe Sedan</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleBodyTypeFilter('Crossover')}>Crossover</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleBodyTypeFilter('Hatchback')}>Hatchback</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleBodyTypeFilter('Soft Top Convertible')}>Soft Top Convertible</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleBodyTypeFilter('Sports Car Van')}>Sports Car Van</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleBodyTypeFilter('Wagon')}>Wagon</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleBodyTypeFilter('Utility Truck')}>Utility Truck</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleBodyTypeFilter('Other')}>Other</option>
                                 </div>
                             </Accordion.Content>
                         </Accordion.Panel>
