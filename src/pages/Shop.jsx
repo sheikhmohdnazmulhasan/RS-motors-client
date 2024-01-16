@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import demoImg from '../assets/images.jpeg';
 import { IoIosArrowForward } from "react-icons/io";
+import NoData from '../components/NoData';
 
 const Shop = () => {
 
@@ -61,6 +62,7 @@ const Shop = () => {
         const response = await axios.get(`http://localhost:5000/cars/v1`);
         setCars(response.data)
     }
+
 
     return (
         <div className="min-h-screen bg-[#000]">
@@ -203,17 +205,21 @@ const Shop = () => {
                 </div>
 
                 {/* content */}
-                <div className="w-4/5  min-h-screen p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-black">
+                <div className="w-full">
+                    {!cars.length ? <div className=" flex justify-center items-center">
+                        <NoData />
+                    </div> : <div className="w-4/5  min-h-screen p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-black">
 
-                    {cars.map(car => <div key={car._id} className=" bg-[#100f0f] h-80 flex flex-col">
-                        <img src={demoImg} alt="" className='w-full h-48' />
-                        <div className="my-3 px-3">
-                            <h3 className='text-xl text-white  font-semibold'>Title Is Here</h3>
-                            <h4 className='text-white opacity-70'>2024</h4>
-                            <h4 className='text-white opacity-70'> Japanese Specs</h4>
-                            <h4 className='text-slate-300 font-semibold flex items-center mt-2'> <IoIosArrowForward className='font-bold' />  View Details</h4>
-                        </div>
-                    </div>)}
+                        {cars.map(car => <div key={car._id} className=" bg-[#100f0f] h-80 flex flex-col">
+                            <img src={demoImg} alt="" className='w-full h-48' />
+                            <div className="my-3 px-3">
+                                <h3 className='text-xl text-white  font-semibold'>Title Is Here</h3>
+                                <h4 className='text-white opacity-70'>2024</h4>
+                                <h4 className='text-white opacity-70'> Japanese Specs</h4>
+                                <h4 className='text-slate-300 font-semibold flex items-center mt-2'> <IoIosArrowForward className='font-bold' />View Details</h4>
+                            </div>
+                        </div>)}
+                    </div>}
                 </div>
             </div>
         </div>
