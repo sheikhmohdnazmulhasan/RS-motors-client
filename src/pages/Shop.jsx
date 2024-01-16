@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Plus } from 'phosphor-react'
 import { Accordion } from 'keep-react'
 import { useState } from 'react';
@@ -16,34 +17,47 @@ const Shop = () => {
         }
     });
 
+    async function handleSearchCar(event) {
+        event.preventDefault();
+        const form = event.target;
+        const title = form.car.value;
+        const response = await axios.get(`http://localhost:5000/cars/body-type/v1?query=${title}`);
+        setCars(response.data)
+    }
+
     async function handleBodyTypeFilter(query) {
         const response = await axios.get(`http://localhost:5000/cars/body-type/v1?query=${query}`);
-
+        setCars(response.data)
     }
 
     async function handleFuelTypeFilter(query) {
         const response = await axios.get(`http://localhost:5000/cars/fuel-type/v1?query=${query}`);
-        console.log(response.data);
+        setCars(response.data)
     }
 
     async function handleTransmissionTypeFilter(query) {
         const response = await axios.get(`http://localhost:5000/cars/transmission-type/v1?query=${query}`);
-        console.log(response.data);
+        setCars(response.data)
     }
 
     async function handleRegionalSpecFilter(query) {
         const response = await axios.get(`http://localhost:5000/cars/regional-spec/v1?query=${query}`);
-        console.log(response.data);
+        setCars(response.data)
     }
 
     async function handleSteeringSideFilter(query) {
         const response = await axios.get(`http://localhost:5000/cars/steering-side/v1?query=${query}`);
-        console.log(response.data);
+        setCars(response.data)
     }
 
     async function handleConditionFilter(query) {
         const response = await axios.get(`http://localhost:5000/cars/condition/v1?query=${query}`);
-        console.log(response.data);
+        setCars(response.data)
+    }
+
+    async function handleClearFilter() {
+        const response = await axios.get(`http://localhost:5000/cars/v1`);
+        setCars(response.data)
     }
 
     return (
@@ -51,8 +65,8 @@ const Shop = () => {
             <div className=" bg-[url('https://i.ibb.co/6JmKc1S/shop-banner.jpg')] h-96 bg-fixed bg-cover">
                 <div className="bg-black opacity-70 w-full h-full flex justify-center text-center items-center flex-col gap-4">
                     <h1 className="text-3xl font-bold text-white uppercase">RS Motors International is ready to offer you <br /> the car of your choice</h1>
-                    <form>
-                        <input type="text" name="" id="" placeholder="Car Name..." className="py-2 px-4 rounded-l active:!border-0" />
+                    <form onSubmit={handleSearchCar}>
+                        <input type="text" name="car" id="" placeholder="Car Name..." className="py-2 px-4 rounded-l active:!border-0" />
                         <input type="submit" value="Search" className="py-2 px-2 rounded-r text-white cursor-pointer hover:bg-[#947d5d] bg-[#BFA37C]" />
                     </form>
                 </div>
@@ -63,7 +77,7 @@ const Shop = () => {
                 <div className="w-1/5 bg-[#241C2B]  p-5">
                     <div className="flex justify-between items-center border-b pb-2 mb-10">
                         <h3 className='text-3xl text-white font-semibold uppercase'>Filter</h3>
-                        <h3 className=' text-slate-300 '>Clear Filter</h3>
+                        <h3 className=' text-slate-300 cursor-pointer' onClick={handleClearFilter}>Clear Filter</h3>
 
                     </div>
                     <Accordion className='space-y-6'>
