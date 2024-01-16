@@ -31,6 +31,11 @@ const Shop = () => {
         console.log(response.data);
     }
 
+    async function handleRegionalSpecFilter(query) {
+        const response = await axios.get(`http://localhost:5000/cars/regional-spec/v1?query=${query}`);
+        console.log(response.data);
+    }
+
     return (
         <div className="min-h-screen bg-[#141A1C]">
             <div className=" bg-[url('https://i.ibb.co/6JmKc1S/shop-banner.jpg')] h-96 bg-fixed bg-cover">
@@ -122,14 +127,14 @@ const Shop = () => {
                             </Accordion.Container>
                             <Accordion.Content className="text-white">
                                 <div className="space-y-3">
-                                    <option className="hover:underline cursor-pointer">GCC Specs</option>
-                                    <option className="hover:underline cursor-pointer">American Specs</option>
-                                    <option className="hover:underline cursor-pointer">Canadian Specs</option>
-                                    <option className="hover:underline cursor-pointer">European Specs</option>
-                                    <option className="hover:underline cursor-pointer">Japanese Specs</option>
-                                    <option className="hover:underline cursor-pointer">Korean Specs</option>
-                                    <option className="hover:underline cursor-pointer">Chinese Specs</option>
-                                    <option className="hover:underline cursor-pointer">Other</option>
+                                    <option className="hover:underline cursor-pointer" onClick={()=> handleRegionalSpecFilter("GCC Specs")}>GCC Specs</option>
+                                    <option className="hover:underline cursor-pointer" onClick={()=> handleRegionalSpecFilter("American Specs")}>American Specs</option>
+                                    <option className="hover:underline cursor-pointer" onClick={()=> handleRegionalSpecFilter("Canadian Specs")}>Canadian Specs</option>
+                                    <option className="hover:underline cursor-pointer" onClick={()=> handleRegionalSpecFilter("European Specs")}>European Specs</option>
+                                    <option className="hover:underline cursor-pointer" onClick={()=> handleRegionalSpecFilter("Japanese Specs")}>Japanese Specs</option>
+                                    <option className="hover:underline cursor-pointer" onClick={()=> handleRegionalSpecFilter("Korean Specs")}>Korean Specs</option>
+                                    <option className="hover:underline cursor-pointer" onClick={()=> handleRegionalSpecFilter("Chinese Specs")}>Chinese Specs</option>
+                                    <option className="hover:underline cursor-pointer" onClick={()=> handleRegionalSpecFilter("Other")}>Other</option>
                                 </div>
                             </Accordion.Content>
                         </Accordion.Panel>
