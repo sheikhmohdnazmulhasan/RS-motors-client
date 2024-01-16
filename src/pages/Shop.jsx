@@ -1,6 +1,6 @@
 import { Plus } from 'phosphor-react'
 import { Accordion } from 'keep-react'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 
@@ -18,8 +18,12 @@ const Shop = () => {
 
     async function handleBodyTypeFilter(query) {
         const response = await axios.get(`http://localhost:5000/cars/body-type/v1?query=${query}`);
-        console.log(response.data);
+        
+    }
 
+    async function handleFuelTypeFilter(query) {
+        const response = await axios.get(`http://localhost:5000/cars/fuel-type/v1?query=${query}`);
+        console.log(response.data);
     }
 
     return (
@@ -77,10 +81,10 @@ const Shop = () => {
                             </Accordion.Container>
                             <Accordion.Content className="text-white">
                                 <div className="space-y-3">
-                                    <option className="hover:underline cursor-pointer">Diesel</option>
-                                    <option className="hover:underline cursor-pointer">Petrol</option>
-                                    <option className="hover:underline cursor-pointer">Hybrid</option>
-                                    <option className="hover:underline cursor-pointer">Electric</option>
+                                    <option className="hover:underline cursor-pointer" onClick={()=>handleFuelTypeFilter('Diesel')}>Diesel</option>
+                                    <option className="hover:underline cursor-pointer" onClick={()=>handleFuelTypeFilter('Petrol')}>Petrol</option>
+                                    <option className="hover:underline cursor-pointer" onClick={()=>handleFuelTypeFilter('Hybrid')}>Hybrid</option>
+                                    <option className="hover:underline cursor-pointer" onClick={()=>handleFuelTypeFilter('Electric')}>Electric</option>
                                 </div>
                             </Accordion.Content>
                         </Accordion.Panel>
