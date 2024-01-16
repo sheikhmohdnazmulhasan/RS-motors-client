@@ -41,6 +41,11 @@ const Shop = () => {
         console.log(response.data);
     }
 
+    async function handleConditionFilter(query) {
+        const response = await axios.get(`http://localhost:5000/cars/condition/v1?query=${query}`);
+        console.log(response.data);
+    }
+
     return (
         <div className="min-h-screen bg-[#141A1C]">
             <div className=" bg-[url('https://i.ibb.co/6JmKc1S/shop-banner.jpg')] h-96 bg-fixed bg-cover">
@@ -172,9 +177,9 @@ const Shop = () => {
                             </Accordion.Container>
                             <Accordion.Content className="text-white">
                                 <div className="space-y-3">
-                                    <option className="hover:underline cursor-pointer">Excellent</option>
-                                    <option className="hover:underline cursor-pointer">Good</option>
-                                    <option className="hover:underline cursor-pointer">Fair</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleConditionFilter('Excellent')}>Excellent</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleConditionFilter('Good')}>Good</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleConditionFilter('Fair')}>Fair</option>
                                 </div>
                             </Accordion.Content>
                         </Accordion.Panel>
