@@ -4,6 +4,8 @@ import { Accordion } from 'keep-react'
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
+import demoImg from '../assets/images.jpeg';
+import { IoIosArrowForward } from "react-icons/io";
 
 const Shop = () => {
 
@@ -61,7 +63,7 @@ const Shop = () => {
     }
 
     return (
-        <div className="min-h-screen bg-[#141A1C]">
+        <div className="min-h-screen bg-[#000]">
             <div className=" bg-[url('https://i.ibb.co/6JmKc1S/shop-banner.jpg')] h-96 bg-fixed bg-cover">
                 <div className="bg-black opacity-70 w-full h-full flex justify-center text-center items-center flex-col gap-4">
                     <h1 className="text-3xl font-bold text-white uppercase">RS Motors International is ready to offer you <br /> the car of your choice</h1>
@@ -71,7 +73,7 @@ const Shop = () => {
                     </form>
                 </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-1">
 
                 {/* Filter bar */}
                 <div className="w-1/5 bg-[#241C2B]  p-5">
@@ -201,9 +203,17 @@ const Shop = () => {
                 </div>
 
                 {/* content */}
-                <div className="w-4/5 border min-h-screen p-5 flex gap-4">
+                <div className="w-4/5  min-h-screen p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-black">
 
-                    {cars.map(car => <div key={car._id} className="border w-72 h-72"></div>)}
+                    {cars.map(car => <div key={car._id} className=" bg-[#100f0f] h-80 flex flex-col">
+                        <img src={demoImg} alt="" className='w-full h-48' />
+                        <div className="my-3 px-3">
+                            <h3 className='text-xl text-white  font-semibold'>Title Is Here</h3>
+                            <h4 className='text-white opacity-70'>2024</h4>
+                            <h4 className='text-white opacity-70'> Japanese Specs</h4>
+                            <h4 className='text-slate-300 font-semibold flex items-center mt-2'> <IoIosArrowForward className='font-bold' />  View Details</h4>
+                        </div>
+                    </div>)}
                 </div>
             </div>
         </div>
