@@ -63,6 +63,7 @@ const Shop = () => {
         setCars(response.data)
     }
 
+    console.log(cars);
 
     return (
         <div className="min-h-screen bg-[#000]">
@@ -206,17 +207,17 @@ const Shop = () => {
 
                 {/* content */}
                 <div className="w-full">
-                    {!cars.length ? <div className=" flex justify-center items-center">
+                    {!cars.length ? <div className=" flex min-h-screen justify-center">
                         <NoData />
                     </div> : <div className="w-4/5  min-h-screen p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 bg-black">
 
                         {cars.map(car => <div key={car._id} className=" bg-[#100f0f] h-80 flex flex-col">
                             <img src={demoImg} alt="" className='w-full h-48' />
                             <div className="my-3 px-3">
-                                <h3 className='text-xl text-white  font-semibold'>Title Is Here</h3>
-                                <h4 className='text-white opacity-70'>2024</h4>
-                                <h4 className='text-white opacity-70'> Japanese Specs</h4>
-                                <h4 className='text-slate-300 font-semibold flex items-center mt-2'> <IoIosArrowForward className='font-bold' />View Details</h4>
+                                <h3 className='text-xl text-white  font-semibold'>{car?.title}</h3>
+                                <h4 className='text-white opacity-70'>Year - {car.year}</h4>
+                                <h4 className='text-white opacity-70'>{car?.regionalSpec}</h4>
+                                <h4 className='text-slate-300 font-semibold flex items-center mt-2 cursor-pointer'> <IoIosArrowForward className='font-bold' />View Details</h4>
                             </div>
                         </div>)}
                     </div>}

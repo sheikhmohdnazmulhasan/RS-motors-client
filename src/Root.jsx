@@ -24,7 +24,7 @@ const Root = () => {
                             </label>
                         </div>
                         <div className="flex-1 px-2 mx-2">
-                            <img className="w-[50%] md:w-[16%]" src={logo} alt="" />
+                            <Link className="w-[50%] md:w-[16%]" to={'/'}><img src={logo} alt="" /></Link>
                         </div>
                         <div className="flex-none hidden lg:block">
                             <ul className="menu menu-horizontal text-white">
