@@ -18,11 +18,16 @@ const Shop = () => {
 
     async function handleBodyTypeFilter(query) {
         const response = await axios.get(`http://localhost:5000/cars/body-type/v1?query=${query}`);
-        
+
     }
 
     async function handleFuelTypeFilter(query) {
         const response = await axios.get(`http://localhost:5000/cars/fuel-type/v1?query=${query}`);
+        console.log(response.data);
+    }
+
+    async function handleTransmissionTypeFilter(query) {
+        const response = await axios.get(`http://localhost:5000/cars/transmission-type/v1?query=${query}`);
         console.log(response.data);
     }
 
@@ -81,10 +86,10 @@ const Shop = () => {
                             </Accordion.Container>
                             <Accordion.Content className="text-white">
                                 <div className="space-y-3">
-                                    <option className="hover:underline cursor-pointer" onClick={()=>handleFuelTypeFilter('Diesel')}>Diesel</option>
-                                    <option className="hover:underline cursor-pointer" onClick={()=>handleFuelTypeFilter('Petrol')}>Petrol</option>
-                                    <option className="hover:underline cursor-pointer" onClick={()=>handleFuelTypeFilter('Hybrid')}>Hybrid</option>
-                                    <option className="hover:underline cursor-pointer" onClick={()=>handleFuelTypeFilter('Electric')}>Electric</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleFuelTypeFilter('Diesel')}>Diesel</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleFuelTypeFilter('Petrol')}>Petrol</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleFuelTypeFilter('Hybrid')}>Hybrid</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleFuelTypeFilter('Electric')}>Electric</option>
                                 </div>
                             </Accordion.Content>
                         </Accordion.Panel>
@@ -100,8 +105,8 @@ const Shop = () => {
                             </Accordion.Container>
                             <Accordion.Content className="text-white">
                                 <div className="space-y-3">
-                                    <option className="hover:underline cursor-pointer">Manual Transmission</option>
-                                    <option className="hover:underline cursor-pointer">Automatic Transmission</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleTransmissionTypeFilter("Manual Transmission")}>Manual Transmission</option>
+                                    <option className="hover:underline cursor-pointer" onClick={() => handleTransmissionTypeFilter('Automatic Transmission')}>Automatic Transmission</option>
                                 </div>
                             </Accordion.Content>
                         </Accordion.Panel>
