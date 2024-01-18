@@ -574,11 +574,11 @@ const AddCar = () => {
             </p>
           )}
           {/* preview photos */}
-          <div className="flex flex-wrap my-6">
+          <div className="flex flex-wrap mt-4 gap-6">
             {imagePreviews.map((preview, index) => (
               <div key={index}>
                 <div className="flex relative">
-                  <div className="bg-gray-200 rounded-lg mr-4">
+                  <div className="bg-gray-200 rounded-lg ">
                     <img
                       src={preview}
                       alt={`Preview ${index}`}
@@ -587,7 +587,7 @@ const AddCar = () => {
                   </div>
                   <button
                     onClick={() => handleRemoveImage(index)}
-                    className="bg-[#241C2B]  text-white text-xl rounded-full h-7 w-7 absolute -top-3 right-2"
+                    className="bg-[#241C2B]  text-white text-xl rounded-full h-7 w-7 absolute -top-3 -right-2"
                   >
                     x
                   </button>
