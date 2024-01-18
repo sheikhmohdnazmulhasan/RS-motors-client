@@ -7,6 +7,7 @@ import axios from 'axios';
 import demoImg from '../assets/images.jpeg';
 import { IoIosArrowForward } from "react-icons/io";
 import NoData from '../components/NoData';
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
 
@@ -217,7 +218,7 @@ const Shop = () => {
                                 <h3 className='text-xl text-white  font-semibold'>{car?.title}</h3>
                                 <h4 className='text-white opacity-70'>Year - {car.year}</h4>
                                 <h4 className='text-white opacity-70'>{car?.regionalSpec}</h4>
-                                <h4 className='text-slate-300 font-semibold flex items-center mt-2 cursor-pointer'> <IoIosArrowForward className='font-bold' />View Details</h4>
+                                <Link to={`/shop/${car._id}`}><h4 className='text-slate-300 font-semibold flex items-center mt-2 cursor-pointer'> <IoIosArrowForward className='font-bold' />View Details</h4></Link>
                             </div>
                         </div>)}
                     </div>}

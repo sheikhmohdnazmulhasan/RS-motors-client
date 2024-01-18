@@ -17,16 +17,22 @@ import Portfolios from "./pages/admin/pages/Portfolios";
 import Shop from "./pages/Shop";
 import EditCar from "./pages/admin/pages/EditCar";
 import EditP from "./pages/admin/pages/EditP";
+import CarDtls from "./pages/CarDtls";
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
     path: "/", element: <Root />,
     children: [
+
+      // Users
       { index: true, element: <Home /> },
       { path: '/login', element: <Login /> },
       { path: '/portfolio/:id', element: <PortfolioDetails />, loader: ({ params }) => fetch(`http://localhost:5000/deal-close/v1/${params.id}`) },
       { path: '/shop', element: <Shop /> },
+      { path: '/shop/:id', element: <CarDtls />, loader: ({ params }) => fetch(`http://localhost:5000/shop/v1/${params.id}`) },
+
+      // Admin
       {
         path: 'admin/dashboard', element: <AdminRoute><Dashboard /></AdminRoute>,
         children: [

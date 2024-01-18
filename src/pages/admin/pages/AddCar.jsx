@@ -29,10 +29,15 @@ const AddCar = () => {
         const transmissionType = form.transmissionType.value;
         const regionalSpec = form.regionalSpec.value;
         const steeringSide = form.steeringSide.value;
-        const photo = form.photo.files[0];
+        const photo = form.photo.files[0]
 
         const image = new FormData();
         image.append('image', photo);
+
+        // for (let i = 0; i < photo.length; i++) {
+
+        //     image.append(`images[${i}]`, photo[0]);
+        // }
 
         const toastID = toast.loading('Uploading...',
             {
@@ -214,7 +219,9 @@ const AddCar = () => {
 
                 <div className="max-w-lg mx-auto mb-4">
                     <label className="block mb-2 text-sm text-gray-600" htmlFor="user_avatar">Upload file</label>
-                    <input name="photo" className="block w-full text-sm text-gray-900 rounded-md cursor-pointer dark:text-gray-400 focus:outline-none bg-gray-700" aria-describedby="user_avatar_help" id="user_avatar" type="file" required />
+                    <div className="flex">
+                        <input name="photo" className="block w-full text-sm text-gray-900 rounded-md cursor-pointer dark:text-gray-400 focus:outline-none bg-gray-700" aria-describedby="user_avatar_help" id="user_avatar" type="file" required multiple />
+                    </div>
                 </div>
 
                 <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800  font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center">Add Car</button>
