@@ -8,6 +8,7 @@ const CarDtls = () => {
     return (
         <div>
             <p>Details Information</p>
+            <h1>Hello world</h1>
         </div>
     );
 };
